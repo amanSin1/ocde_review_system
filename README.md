@@ -1,4 +1,4 @@
-<img width="980" height="358" alt="image" src="https://github.com/user-attachments/assets/15409105-b04e-46ec-9a1d-6ed50103afd9" />🧠 Collaborative Code Review System (Backend)
+
 
 A production-style backend system for collaborative code reviews, designed for students and mentors.
 Built with FastAPI, PostgreSQL, SQLAlchemy, JWT Authentication, and Docker.
