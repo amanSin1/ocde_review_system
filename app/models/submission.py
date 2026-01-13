@@ -20,6 +20,9 @@ class Submission(Base):
     updated_at = Column(TIMESTAMP(timezone=True), nullable= False, server_default=func.now(), onupdate=func.now())
     user = relationship("User", back_populates="submissions")
     reviews = relationship("Review", back_populates="submission")
+
+    # 🆕 NEW FIELD - Video Walkthrough URL
+    walkthrough_video_url = Column(String, nullable=True)
     # 🔑 THIS IS THE FIX
     tags = relationship(
         "Tag",

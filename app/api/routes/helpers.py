@@ -34,6 +34,7 @@ def serialize_submission(submission):
             "email": submission.user.email
         },
         "title": submission.title,
+        "video_url": submission.walkthrough_video_url,
         "description": submission.description,
         "code_content": submission.code_content,
         "language": submission.language,

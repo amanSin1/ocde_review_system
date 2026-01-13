@@ -7,6 +7,7 @@ from slowapi import Limiter, _rate_limit_exceeded_handler
 from slowapi.util import get_remote_address
 from slowapi.errors import RateLimitExceeded
 from fastapi import FastAPI, Request
+from app.api.routes import videos
 from app.core.rate_limiter import limiter
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -27,6 +28,7 @@ app.include_router(submissions.router)
 app.include_router(reviews.router)
 app.include_router(notifications.router)
 app.include_router(tags.router)
+app.include_router(videos.router)
 
 @app.get("/")
 def read_root():

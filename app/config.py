@@ -8,6 +8,10 @@ class Settings(BaseSettings):
     PROJECT_NAME: str = "Code Review System"
     DEBUG: bool = True
 
+    CLOUDINARY_CLOUD_NAME: str
+    CLOUDINARY_API_KEY: str
+    CLOUDINARY_API_SECRET: str
+
     class Config:
         env_file = ".env"
 

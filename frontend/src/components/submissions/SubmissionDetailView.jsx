@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { User, Star, MessageSquare } from 'lucide-react';
+import { User, Star, MessageSquare, Video } from 'lucide-react';
 import { fetchSubmissionAPI, createReviewAPI, updateSubmissionAPI, deleteSubmissionAPI } from '../../services/api';
 
 export default function SubmissionDetailView({ submissionId, user, onViewChange, onSubmissionUpdated }) {
@@ -23,6 +23,8 @@ export default function SubmissionDetailView({ submissionId, user, onViewChange,
   const loadSubmission = async () => {
     try {
       const res = await fetchSubmissionAPI(submissionId);
+      console.log('📹 Submission data:', res); // DEBUG: Check if video_url exists
+      console.log('📹 Video URL:', res.video_url || res.video_walkthrough_url); // Check both possible field names
       setSubmission(res);
       setEditForm({
         title: res.title,
@@ -284,6 +286,41 @@ export default function SubmissionDetailView({ submissionId, user, onViewChange,
           </div>
         )}
       </div>
+
+      {/* Video Walkthrough Section */}
+      {(submission.video_url || submission.video_walkthrough_url || submission.videoUrl) && (
+        <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200 mb-6">
+          <div className="flex items-center space-x-3 mb-4">
+            <div className="w-10 h-10 bg-gradient-to-br from-blue-400 to-purple-400 rounded-full flex items-center justify-center">
+              <Video className="w-5 h-5 text-white" />
+            </div>
+            <div>
+              <h2 className="text-xl font-bold text-slate-900">Code Walkthrough</h2>
+              <p className="text-sm text-slate-600">Student's explanation and demonstration</p>
+            </div>
+          </div>
+          
+          <div className="bg-slate-900 rounded-xl overflow-hidden">
+            <video 
+              src={submission.video_url || submission.video_walkthrough_url || submission.videoUrl}
+              controls
+              controlsList="nodownload"
+              className="w-full max-h-[600px]"
+              preload="metadata"
+            >
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          
+          <div className="mt-4 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+            <p className="text-sm text-blue-800">
+              💡 <strong>Tip:</strong> Watch the student's walkthrough to understand their thought process, 
+              design decisions, and specific areas where they want feedback. This context will help you 
+              provide more targeted and valuable code reviews.
+            </p>
+          </div>
+        </div>
+      )}
 
       <div className="mb-6">
         <h2 className="text-2xl font-bold text-slate-900 mb-4">

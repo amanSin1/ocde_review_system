@@ -19,6 +19,7 @@ class SubmissionResponse(BaseModel):
     id: int
     title: str
     status:str
+    walkthrough_video_url: Optional[str] = None
     updated_at: datetime
     class Config:
         from_attributes = True

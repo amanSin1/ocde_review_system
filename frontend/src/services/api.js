@@ -7,6 +7,8 @@ async function request(path, opts = {}) {
   if (token) {
     headers['Authorization'] = `Bearer ${token}`;
   }
+  
+  // IMPORTANT: Don't set Content-Type for FormData - browser sets it automatically with boundary
   if (!headers['Content-Type'] && !(opts.body instanceof FormData)) {
     headers['Content-Type'] = 'application/json';
   }
@@ -64,10 +66,20 @@ export async function fetchSubmissionAPI(id) {
 }
 
 export async function createSubmissionAPI(payload) {
-  return request('/api/submissions', {
-    method: 'POST',
-    body: JSON.stringify(payload)
-  });
+  // Check if payload is FormData (contains video) or regular JSON
+  if (payload instanceof FormData) {
+    // For FormData with video, send as multipart/form-data
+    return request('/api/submissions', {
+      method: 'POST',
+      body: payload // Don't stringify FormData!
+    });
+  } else {
+    // For regular JSON payload (backward compatibility)
+    return request('/api/submissions', {
+      method: 'POST',
+      body: JSON.stringify(payload)
+    });
+  }
 }
 
 export async function createReviewAPI(payload) {
