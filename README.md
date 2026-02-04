@@ -316,7 +316,6 @@ Endpoints Overview
 
 🔮 Future Enhancements
 
-Admin dashboard
 
 WebSocket real-time notifications
 
