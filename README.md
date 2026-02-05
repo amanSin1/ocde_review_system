@@ -2,7 +2,7 @@
 
 > A production-ready collaborative code review platform for students and mentors with AI-powered analysis and real-time analytics.
 
-🚀 **[Live Demo](https://code-review-system-frontend-v2.onrender.com/)** | 📚 **[API Documentation](https://code-review-backend-v1-2.onrender.com/docs)** | 🐳 **[Docker Hub](https://hub.docker.com/r/amansingh3413/code-review-system)**
+🚀 **[Live Demo](https://letsreviewcode.onrender.com/)** | 📚 **[API Documentation](https://code-review-syst-backend.onrender.com/docs)** | 🐳 **[Docker Hub](https://hub.docker.com/r/amansingh3413/code-review-system)**
 
 Built with **FastAPI**, **PostgreSQL**, **React**, **Docker**, and **Google Gemini AI** — designed to showcase real backend engineering practices including role-based access control, optimized querying, AI integration, and containerized deployment.
 
@@ -111,48 +111,6 @@ Built with **FastAPI**, **PostgreSQL**, **React**, **Docker**, and **Google Gemi
 
 ---
 
-## 📂 Project Structure
-
-```
-code-review-system/
-├── app/                          # Backend application
-│   ├── api/
-│   │   └── routes/              # API endpoints
-│   │       ├── auth.py
-│   │       ├── submissions.py
-│   │       ├── reviews.py
-│   │       ├── analytics.py
-│   │       └── ai_analysis.py
-│   ├── models/                  # SQLAlchemy models
-│   ├── schemas/                 # Pydantic schemas
-│   ├── core/
-│   │   ├── config.py
-│   │   ├── security.py
-│   │   ├── logger.py
-│   │   └── rate_limiter.py
-│   ├── services/                # Business logic
-│   │   ├── ai_service.py
-│   │   └── analytics_service.py
-│   ├── database.py
-│   ├── oauth2.py
-│   └── main.py
-├── frontend/                    # React application
-│   ├── src/
-│   │   ├── components/
-│   │   ├── pages/
-│   │   ├── services/
-│   │   └── App.jsx
-│   └── package.json
-├── alembic/                     # Database migrations
-├── tests/                       # Test suite
-├── docker/
-│   ├── Dockerfile.backend
-│   ├── Dockerfile.frontend
-│   └── entrypoint.sh
-├── docker-compose.yml
-├── requirements.txt
-└── README.md
-```
 
 ---
 
@@ -305,7 +263,7 @@ All tests run against an isolated test database and don't affect production data
 - `GET /notifications` - Get user notifications
 - `PUT /notifications/{id}/read` - Mark notification as read
 
-For detailed API documentation with request/response examples, visit the **[Live API Docs](https://code-review-backend-v1-2.onrender.com/docs)**.
+For detailed API documentation with request/response examples, visit the **[Live API Docs](https://code-review-syst-backend.onrender.com/docs)**.
 
 ---
 
@@ -332,7 +290,7 @@ python -c "import secrets; print(secrets.token_urlsafe(32))"
 
 ## 🎯 Demo Credentials
 
-Try the live application with these demo accounts:
+Try the live application with these demo accounts,if you dont want to create new account, try these:
 
 **Student Account:**
 - Email: `demo@student.com`
@@ -480,16 +438,20 @@ Backend-focused developer specializing in Python, FastAPI, and PostgreSQL
 ## 📸 Screenshots
 
 ### Dashboard Analytics
-*[Add screenshot of analytics dashboard]*
+*[<img width="1909" height="927" alt="image" src="https://github.com/user-attachments/assets/94069fc3-8797-49d5-980a-8440a6cf6726" />
+]*
 
 ### Code Submission
-*[Add screenshot of submission form]*
+*[<img width="1237" height="935" alt="image" src="https://github.com/user-attachments/assets/9b2bfaf9-f26d-4559-a92c-4e6b027aeb3b" />
+]*
 
 ### AI Analysis Results
-*[Add screenshot of AI analysis]*
+*[<img width="1258" height="934" alt="image" src="https://github.com/user-attachments/assets/40464f92-0983-41e8-b238-51a8f3995e69" />
+]*
 
 ### Review Interface
-*[Add screenshot of review interface]*
+*[<img width="1271" height="931" alt="image" src="https://github.com/user-attachments/assets/0e99cf11-2d33-4a83-9e23-efe0fd2b189a" />
+]*
 
 ---
 
